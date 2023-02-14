@@ -1,24 +1,23 @@
 import logo from './logo.svg';
-import './App.css';
+import React, { Component, Suspense } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
+//https://www.notion.so/Junior-Developer-Test-Task-1b2184e40dea47df840b7c0cc638e61e
 function App() {
+  const Index = React.lazy(() => import('./pages/index'));
+  const ProductList = React.lazy(() => import('./pages/ProductList'));
+  const AddProduct = React.lazy(() => import('./pages/AddProduct'));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="product-list" element={<ProductList />} />
+          <Route path="add-product" element={<AddProduct />} />
+          <Route path="*" element={<h1>404</h1>} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }
 

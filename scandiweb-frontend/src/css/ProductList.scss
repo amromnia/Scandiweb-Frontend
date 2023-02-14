@@ -1,0 +1,20 @@
+$myColor: red;
+
+.TopBar .Title {
+  float:left;
+  padding: 1px 78% 1px 1px;
+}
+
+.TopBar .Buttons{
+    float: right !important;
+    border-top: 30px solid transparent;
+}
+
+//give div invisible border
+.TopBar {
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    display: flex;
+    //display: inline-block;
+}
+
