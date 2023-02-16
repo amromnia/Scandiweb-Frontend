@@ -2,7 +2,6 @@ import { Component } from "react";
 import React from 'react'
 import { Navigate } from "react-router-dom";
 import { api } from "../configs";
-import Card from '@mui/material/Card';
 import ProductCard from "../components/ProductCard";
 
 import "../css/ProductList.scss";
@@ -40,7 +39,6 @@ class ProductList extends Component {
             return;
         }
         this.setState({ products: data });
-        console.log(data)
     }
     catch(error) {
         this.setState({ error: error.message })
@@ -58,9 +56,6 @@ class ProductList extends Component {
         this.navigateFunc("/add-product")
     }
 
-    onClick2 = () => {
-        console.log(this.state.productsToDelete)
-    }
     onCheckboxClick = (e) => {
         if(e.target.checked === false){
             this.setState({ productsToDelete: this.state.productsToDelete.filter((sku) => sku !== e.target.value) })
@@ -117,7 +112,7 @@ class ProductList extends Component {
                 {this.state.navigate}
                 <div className='TopBar'>
                     <span className='Title'><h1>Product List</h1></span>
-                    <span className='Buttons'><button className='AddBtn' onClick={this.onAddBtnClick}>Add</button> <button className='DeleteBtn' onClick={this.onDeleteBtnClick}>Mass Delete</button></span>
+                    <span className='Buttons'><button className='AddBtn' onClick={this.onAddBtnClick}>ADD</button> <button className='DeleteBtn' onClick={this.onDeleteBtnClick}>MASS DELETE</button></span>
                 </div>
                 <hr style={{marginBottom: "30px"}}/>
                 <div className='Error'>{this.state.error}</div>

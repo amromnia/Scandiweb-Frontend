@@ -64,7 +64,7 @@ class ProductCard extends Component {
                     {productAttributeValues}
                 </CardContent>
                 <CardActions>
-                    <input type="checkbox" id="checkbox" name="checkbox" value={this.props.product.sku} onClick={this.props.onCheckboxClick} />
+                    <input type="checkbox" id="checkbox" name="checkbox" className='delete-checkbox' value={this.props.product.sku} onClick={this.props.onCheckboxClick} />
                 </CardActions>
             </Card>
          );
