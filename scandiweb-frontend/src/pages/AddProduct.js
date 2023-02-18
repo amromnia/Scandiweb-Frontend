@@ -88,6 +88,7 @@ class AddProduct extends Component {
             })
         })
         const data = await response.json();
+        console.log(data.ErrorCode)
         if(data.ErrorCode === -5){
             alert("Product with this SKU already exists");
             return;
@@ -176,13 +177,11 @@ class AddProduct extends Component {
                     <span className='Title'><h1>Product Add</h1></span>
                     <span className='Buttons'><button className='SaveBtn' onClick={this.onSaveBtnClick}>Save</button> <button className='CancelBtn' onClick={this.onCancelBtnClick}>Cancel</button></span>
                 </div>
-                <hr style={{marginBottom: "30px"}}/>
+                <br style={{marginBottom: "30px"}}/>
                 <div id="product_form" className='ProductForm'>
-                    {/* render a form for adding a new product */}
                     <div className='ProductFormRow'>
                         <div className='ProductFormLabel'>Name</div>
                         <div className='ProductFormInput'><input id="name" type='text' value={this.state.name} onChange={(e) => {
-                            //regex to allow only letters, numbers, spaces, dashes, commas, periods, underscores, and : characters
                             const re =/^[a-zA-Z0-9 ,._:-]{0,80}$/
                             if(re.test(e.target.value.toString()) || e.target.value === ''){
                                 this.setState({ name: e.target.value.toString()})

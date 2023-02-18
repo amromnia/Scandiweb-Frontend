@@ -70,7 +70,10 @@ class ProductList extends Component {
         }
         try{
             const response  = await fetch(api + "delete-products.php", {
-                method: 'DELETE',
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
                 body: JSON.stringify({
                     products: this.state.productsToDelete
                 })
@@ -92,7 +95,6 @@ class ProductList extends Component {
         this.navigateFunc(0)
     }
     loadProductCards = () => {
-        //grid of product cards
         return <Grid container columnGap={5}
             rowGap={5}
             direction="row"
@@ -112,9 +114,9 @@ class ProductList extends Component {
                 {this.state.navigate}
                 <div className='TopBar'>
                     <span className='Title'><h1>Product List</h1></span>
-                    <span className='Buttons'><button className='AddBtn' onClick={this.onAddBtnClick}>ADD</button> <button className='DeleteBtn' onClick={this.onDeleteBtnClick}>MASS DELETE</button></span>
+                    <span className='Buttons'><button className='AddBtn' onClick={this.onAddBtnClick}>ADD</button> <button className='DeleteBtn' onClick={this.onDeleteBtnClick}>MASS DEL</button></span>
                 </div>
-                <hr style={{marginBottom: "30px"}}/>
+                <br style={{marginBottom: "30px"}}/>
                 <div className='Error'>{this.state.error}</div>
                 <div className='ProductList'>
                     {this.loadProductCards()}

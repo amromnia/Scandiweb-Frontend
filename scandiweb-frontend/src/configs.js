@@ -1,3 +1,3 @@
 
 
-export const api = "http://localhost:6969/scandiweb2/api/";
+export const api = "https://scandiwebstoreapi.000webhostapp.com/api/";
