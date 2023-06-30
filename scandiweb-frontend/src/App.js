@@ -6,7 +6,7 @@ function App() {
   const AddProduct = React.lazy(() => import('./pages/AddProduct'));
   return (
     <Router>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense>
         <Routes>
           <Route path="/" element={<ProductList />} />
           <Route path="product-list" element={<ProductList />} />

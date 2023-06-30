@@ -67,12 +67,12 @@ class AddProduct extends Component {
 
     onSaveBtnClick = async () => {
         if(this.state.name === "" || this.state.sku === "" || this.state.price === "") {
-            alert("Please fill all the fields");
+            alert("Please, submit required data");
             return;
         }
         const importantAttributes = this.getImportantAttributeObject();
         if(Object.values(importantAttributes).some((value) => value === "")) {
-            alert("Please fill all the fields");
+            alert("Please, submit required data");
             return;
         }
         const response = await fetch(api + "add-product.php", {
@@ -175,7 +175,7 @@ class AddProduct extends Component {
                 {this.state.navigate}
                 <div className='TopBar'>
                     <span className='Title'><h1>Product Add</h1></span>
-                    <span className='Buttons'><button className='SaveBtn' onClick={this.onSaveBtnClick}>Save</button> <button className='CancelBtn' onClick={this.onCancelBtnClick}>Cancel</button></span>
+                    <span className='Buttons'><button onClick={this.onSaveBtnClick}>Save</button> <button onClick={this.onCancelBtnClick}>Cancel</button></span>
                 </div>
                 <br style={{marginBottom: "30px"}}/>
                 <div id="product_form" className='ProductForm'>

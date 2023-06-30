@@ -7,7 +7,6 @@ import ProductCard from "../components/ProductCard";
 import "../css/ProductList.scss";
 import { Grid } from "@mui/material";
 
-
 class ProductList extends Component {
     constructor(props) {
         super(props);
@@ -114,9 +113,9 @@ class ProductList extends Component {
                 {this.state.navigate}
                 <div className='TopBar'>
                     <span className='Title'><h1>Product List</h1></span>
-                    <span className='Buttons'><button className='AddBtn' onClick={this.onAddBtnClick}>ADD</button> <button className='DeleteBtn' onClick={this.onDeleteBtnClick}>MASS DEL</button></span>
+                    <span className='Buttons'><button onClick={this.onAddBtnClick}>ADD</button> <button onClick={this.onDeleteBtnClick}>MASS DELETE</button></span>
                 </div>
-                <br style={{marginBottom: "30px"}}/>
+                <br style={{marginBottom: "50px"}}/>
                 <div className='Error'>{this.state.error}</div>
                 <div className='ProductList'>
                     {this.loadProductCards()}
